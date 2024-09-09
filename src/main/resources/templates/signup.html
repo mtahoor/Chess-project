@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+
+<!--<![endif]-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chesstar</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animations.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome5.css}">
+    <link rel="stylesheet" th:href="@{/css/icomoon.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}" class="color-switcher-link">
+    <link rel="stylesheet" th:href="@{/css/shop.css}" class="color-switcher-link">
+    <script th:src="@{/js/vendor/modernizr-2.6.2.min.js}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.min.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!--[if lt IE 9]>
+<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+<div class="preloader">
+    <div class="preloader_image"></div>
+</div>
+
+<!-- search modal -->
+<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="widget widget_search">
+        <form method="get" class="searchform search-form" action="/">
+            <div class="form-group">
+                <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input2">
+            </div>
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-lg modal-sm" role="document">
+        <div class="modal-content cs container-px-0">
+            <div class="container ">
+                <div class="row align-items-center c-gutter-0">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <img src="images/gallery/full/05.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-wrapper p-lg-40 p-20">
+                            <form class="contact-form" method="post" action="/">
+                                <div class="row c-mb-20">
+                                    <div class="col-12 form-title  text-center">
+                                        <h5>Login Form</h5>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group has-placeholder">
+                                            <label for="name3334">Your Login <span class="required">*</span></label>
+                                            <input type="text" aria-required="true" size="30" value="" name="name" id="name3334" class="form-control" placeholder="Your Login">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group has-placeholder">
+                                            <label for="pass12111">Your Password<span class="required">*</span></label>
+                                            <input type="password" id="pass12111" class="form-control" name="pass" aria-required="true" placeholder="Your Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 mt-lg-40 mt-15 mb-0 text-center">
+                                        <div class="form-group">
+                                            <input class="btn btn-maincolor" type="submit" value="Login">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Contact Us Modal -->
+<div class="modal fade" id="contact-form" tabindex="-1" role="dialog" aria-labelledby="contact-form" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-lg modal-sm" role="document">
+        <div class="modal-content cs container-px-0">
+            <div class="container ">
+                <div class="row align-items-center c-gutter-0">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <img src="images/gallery/full/06.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-wrapper p-lg-40 p-20">
+                            <form class="contact-form content-center" method="post" action="/">
+                                <div class="row c-mb-20">
+                                    <div class="col-12 form-title  text-center">
+                                        <h5>Contact Form</h5>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group has-placeholder">
+                                            <label for="name33232">Your Name <span class="required">*</span></label>
+
+                                            <input type="text" aria-required="true" size="30" value="" name="name" id="name33232" class="form-control" placeholder="Your Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group has-placeholder">
+                                            <label for="phone22">Phone Number<span class="required">*</span></label>
+                                            <input type="tel" id="phone22" class="form-control" pattern="^[0-9-+\s()]*$" name="phone" aria-required="true" placeholder="Phone Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ">
+                                        <div class="form-group has-placeholder">
+                                            <label for="message3333">Message</label>
+                                            <textarea aria-required="true" rows="2" cols="45" name="message" id="message3333" class="form-control" placeholder="Comment"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 mt-lg-40 mt-15 mb-0 text-center">
+                                        <div class="form-group">
+                                            <input class="btn btn-maincolor" type="submit" value="Contact us">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- wrappers for visual page editor and boxed version of template -->
+<div id="canvas">
+    <div id="box_wrapper">
+
+        <!-- template sections -->
+        <!--topline section visible only on small screens|-->
+
+        <section class="page_topline ds ms c-gutter-0 s-py-15 s-borderbottom  d-xl-none">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-6 text-left">
+                        <ul class="top-includes">
+                            <li>
+                                <a class="login-form-btn" href="#" data-toggle="modal" data-target="#login-form"><i class="far fa-user"></i></a>
+                            </li>
+                            <li>
+                                <a class="contact-form-btn" href="#" data-toggle="modal" data-target="#contact-form"><i class="far fa-envelope"></i></a>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                        <div class="widget widget_search">
+                                            <form role="search" method="get" class="search-form" action="/">
+                                                <label for="search-form-top2">
+                                                    <span class="screen-reader-text">Search for:</span>
+                                                </label>
+                                                <input type="search" id="search-form-top2" class="search-field" placeholder="Search keyword" value="" name="search">
+                                                <button type="submit" class="search-submit">
+                                                    <span class="screen-reader-text">Search</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="#" class="btn btn-outline-maincolor">donate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="header_absolute ">
+            <!-- header with two Bootstrap columns - left for logo and right for navigation -->
+            <header class="page_header ds ms bg-transparent justify-nav-center s-overlay s-py-10 ">
+
+                <div class="container-fluid">
+
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-3 col-md-7 col-8">
+                            <a href="./" class="logo">
+                                <img src="img/logo.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-xl-10 col-lg-9 col-md-5 col-1">
+                            <div class="nav-wrap">
+                                <!-- main nav start -->
+                                <nav class="top-nav justify-nav-center">
+                                    <ul class="nav sf-menu">
+
+
+                                        <li class="active">
+                                            <a href="index.html">Home</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="index.html">MultiPage</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-alt.html">MultiPage Alternative</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index_static.html">Static Intro</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index_singlepage.html">Single Page</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="about.html">Pages</a>
+                                            <ul>
+
+
+                                                <li>
+                                                    <a href="about.html">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="careers.html">Careers</a>
+                                                </li>
+                                                <li>
+                                                    <a href="mission.html">Mission</a>
+                                                </li>
+                                                <li>
+                                                    <a href="courses.html">Courses</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="courses.html">Courses</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="courses_single.html">Course single</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+
+                                                <li>
+                                                    <a href="pricing.html">Pricing</a>
+                                                </li>
+
+
+                                                <!-- features -->
+                                                <li>
+                                                    <a href="shortcodes_iconbox.html">Shortcodes</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="shortcodes_typography.html">Typography</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_buttons.html">Buttons</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_pricing.html">Pricing</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_iconbox.html">Icon Boxes</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_progress.html">Progress</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_tabs.html">Tabs &amp; Collapse</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_bootstrap.html">Bootstrap Elements</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_animation.html">Animation</a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </li>
+                                                <!-- eof shortcodes -->
+
+                                                <li>
+                                                    <a href="shortcodes_widgets_default.html">Widgets</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="shortcodes_widgets_default.html">Default Widgets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_widgets_shop.html">Shop Widgets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shortcodes_widgets_custom.html">Custom Widgets</a>
+                                                        </li>
+                                                    </ul>
+
+                                                </li>
+                                                <li>
+                                                    <a href="services.html">Services</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="services.html">Services 1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="services2.html">Services 2</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="service-single.html">Single Service</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <!-- gallery -->
+                                                <li>
+                                                    <a href="gallery-image.html">Gallery</a>
+                                                    <ul>
+                                                        <!-- Gallery image only -->
+                                                        <li>
+                                                            <a href="gallery-image.html">Image Only</a>
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="gallery-image-2-cols.html">2 columns</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-image.html">3 columns</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-image-4-cols-fullwidth.html">4 columns fullwidth</a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </li>
+                                                        <!-- eof Gallery image only -->
+
+                                                        <!-- Gallery with title -->
+                                                        <li>
+                                                            <a href="gallery-title.html">Image With Title</a>
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="gallery-title-2-cols.html">2 columns</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-title.html">3 column</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-title-4-cols-fullwidth.html">4 columns fullwidth</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <!-- eof Gallery with title -->
+
+                                                        <!-- Gallery with excerpt -->
+                                                        <li>
+                                                            <a href="gallery-excerpt.html">Image with Excerpt</a>
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="gallery-excerpt-2-cols.html">2 columns</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-excerpt.html">3 column</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-excerpt-4-cols-fullwidth.html">4 columns fullwdith</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <!-- eof Gallery with excerpt -->
+
+
+                                                        <!-- Gallery item -->
+                                                        <li>
+                                                            <a href="gallery-single.html">Gallery Item</a>
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="gallery-single.html">Style 1</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-single2.html">Style 2</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <!-- eof Gallery item -->
+                                                    </ul>
+                                                </li>
+                                                <!-- eof Gallery -->
+
+
+                                                <li>
+                                                    <a href="team.html">Team</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="team.html">Team List</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="team-single.html">Team Member</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li>
+                                                    <a href="faq.html">FAQ</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="faq.html">FAQ</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="faq2.html">FAQ 2</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="404.html">404</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <!-- eof pages -->
+
+
+                                        <li>
+                                            <a href="#">Features</a>
+                                            <div class="mega-menu">
+                                                <ul class="mega-menu-row">
+                                                    <li class="mega-menu-col">
+                                                        <a href="#">Headers</a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="header1.html">Header Type 1</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header2.html">Header Type 2</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header3.html">Header Type 3</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header4.html">Header Type 4</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header5.html">Header Type 5</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header6.html">Header Type 6</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-menu-col">
+                                                        <a href="#">Side Menus</a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="header-side.html">Push Left</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header-side-right.html">Push Right</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header-side-slide.html">Slide Left</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header-side-slide-right.html">Slide Right</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header-side-sticked.html">Sticked Left</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="header-side-sticked-right.html">Sticked Right</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-menu-col">
+                                                        <a href="title1.html">Title Sections</a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="title1.html">Title section 1</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="title2.html">Title section 2</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="title3.html">Title section 3</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="title4.html">Title section 4</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="title5.html">Title section 5</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="title6.html">Title section 6</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-menu-col">
+                                                        <a href="footer1.html#footer">Footers</a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="footer1.html#footer">Footer Type 1</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="footer2.html#footer">Footer Type 2</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="footer3.html#footer">Footer Type 3</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="footer4.html#footer">Footer Type 4</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="footer5.html#footer">Footer Type 5</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="footer6.html#footer">Footer Type 6</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-menu-col">
+                                                        <a href="copyright1.html#copyright">Copyright</a>
+
+                                                        <ul>
+                                                            <li>
+                                                                <a href="copyright1.html#copyright">Copyright 1</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="copyright2.html#copyright">Copyright 2</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="copyright3.html#copyright">Copyright 3</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="copyright4.html#copyright">Copyright 4</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="copyright5.html#copyright">Copyright 5</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="copyright6.html#copyright">Copyright 6</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </div> <!-- eof mega menu -->
+                                        </li>
+                                        <!-- eof features -->
+
+
+                                        <!-- blog -->
+                                        <li>
+                                            <a href="blog-right.html">Blog</a>
+                                            <ul>
+
+                                                <li>
+                                                    <a href="blog-right.html">Right Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-left.html">Left Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-full.html">No Sidebar</a>
+                                                </li>
+
+
+                                                <li>
+                                                    <a href="blog-single-right.html">Post</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="blog-single-right.html">Right Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="blog-single-left.html">Left Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="blog-single-full.html">No Sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+
+                                            </ul>
+                                        </li>
+                                        <!-- eof blog -->
+
+                                        <!-- shop -->
+                                        <li>
+                                            <a href="shop-right.html">Shop</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="shop-account-dashboard.html">Account</a>
+                                                    <ul>
+
+                                                        <li>
+                                                            <a href="shop-account-details.html">Account details</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-account-addresses.html">Addresses</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-account-address-edit.html">Edit Address</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-account-orders.html">Orders</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-account-order-single.html">Single Order</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-account-downloads.html">Downloads</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-account-password-reset.html">Password Reset</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-account-login.html">Login/Logout</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-right.html">Right Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-left.html">Left Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-product-right.html">Product Right Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-product-left.html">Product Left Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-cart.html">Cart</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-checkout.html">Checkout</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-order-received.html">Order Received</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <!-- eof shop -->
+
+                                        <!-- contacts -->
+                                        <li>
+                                            <a href="contact.html">Contact</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="contact.html">Contact 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="contact2.html">Contact 2</a>
+                                                </li>
+                                                <li>
+                                                    <a href="contact3.html">Contact 3</a>
+                                                </li>
+                                                <li>
+                                                    <a href="contact4.html">Contact 4</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <!-- eof contacts -->
+                                    </ul>
+
+
+                                </nav>
+                                <!-- eof main nav -->
+                                <span class=" text-left text-md-right d-none d-xl-block">
+										<a href="#" class="btn btn-outline-maincolor">donate</a>
+									</span>
+                                <ul class="top-includes d-none d-xl-block text-right">
+                                    <li>
+                                        <a class="login-form-btn" href="#" data-toggle="modal" data-target="#login-form"><i class="far fa-user"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="contact-form-btn" href="#" data-toggle="modal" data-target="#contact-form"><i class="far fa-envelope"></i></a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown">
+                                            <a href="#" class="dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton2">
+                                                <div class="widget widget_search">
+                                                    <form role="search" method="get" class="search-form" action="/">
+                                                        <label for="search-form-top">
+                                                            <span class="screen-reader-text">Search for:</span>
+                                                        </label>
+                                                        <input type="search" id="search-form-top" class="search-field" placeholder="Search keyword" value="" name="search">
+                                                        <button type="submit" class="search-submit">
+                                                            <span class="screen-reader-text">Search</span>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- header toggler -->
+                <span class="toggle_menu"><span></span></span>
+            </header>
+        </div>
+
+
+        <section class="page_title ds s-overlay s-pt-150 s-pb-50">
+            <div class="s-blur"></div>
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-md-12 text-center">
+                        <h1>Account - SignUp</h1>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="#">Shop</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                Account - SingUp
+                            </li>
+                        </ol>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="ls s-py-xl-150 s-py-lg-120 s-py-md-80 s-py-50">
+            <div class="container">
+                <div class="row">
+
+
+                    <main class="col-lg-12">
+                        <article>
+                            <!-- .entry-header -->
+                            <div class="entry-content">
+                                <div class="woocommerce">
+
+                                    <!--
+        <div class="woocommerce-message">Are you sure you want to log out? <a
+            href="shop-account-login.html">Confirm and log out</a>
+        </div>
+        -->
+
+                                    <form class="woocomerce-form woocommerce-form-login login" method="post">
+                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                            <label for="username">Username or email address <span class="required">*</span>
+                                            </label>
+                                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="" placeholder="Username or email address">
+                                        </p>
+                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                            <label for="password5675">Password <span class="required">*</span>
+                                            </label>
+                                            <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password5675" placeholder="Password">
+                                        </p>
+
+                                        <p class="form-row">
+                                            <input type="submit" class="woocommerce-Button button" name="login" value="Login">
+                                            <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
+                                                <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever">
+                                                <span>Remember me</span>
+                                            </label>
+                                        </p>
+                                        <p class="woocommerce-LostPassword lost_password">
+                                            <a href="shop-account-password-reset.html">Lost your password?</a>
+                                        </p>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- .entry-content -->
+                        </article>
+
+
+                    </main>
+
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <footer class="page_footer footer-1 text-center text-sm-left  ds s-pt-60 s-pb-30 c-mb-30 s-bordertop">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center">
+
+                    <div class="col-xl-2 col-12 text-xl-left text-center  animate" data-animation="fadeInUp">
+                        <a href="./" class="logo">
+                            <img src="img/logo.png" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-xl-8 col-12 text-center animate" data-animation="fadeInUp">
+
+                        <div class="widget widget_nav_menu">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="about.html">About</a>
+                                </li>
+
+                                <li>
+                                    <a href="courses.html">Courses</a>
+                                </li>
+                                <li>
+                                    <a href="blog-right.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="shop-right.html">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-12 text-center text-xl-right animate" data-animation="fadeInUp">
+							<span class="social-icons">
+								<a href="#" class="fab fab fa-facebook-f @@iconClass" title="facebook"></a>
+								<a href="#" class="fab fa-telegram-plane @@iconClass" title="telegram"></a>
+								<a href="#" class="fab fa-linkedin-in @@iconClass" title="linkedin"></a>
+								<a href="#" class="fab fa-instagram @@iconClass" title="instagram"></a>
+							</span>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <section class="page_copyright copyright1 ds s-pt-70 s-pb-60 s-bordertop">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="widget widget_mailchimp">
+
+
+                            <form class="signup" action="/">
+
+                                <i class="far fa-envelope"></i>
+                                <input name="email" type="email" class="form-control mailchimp_email" placeholder="Email address">
+
+                                <button type="submit" class="search-submit">
+										<span class="screen-reader-text">
+											Subscribe
+										</span>
+                                </button>
+                                <div class="response"></div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+
+                        <p>&copy; Copyright <span class="copyright_year">2019</span> All Rights Reserved</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </div><!-- eof #box_wrapper -->
+</div><!-- eof #canvas -->
+
+
+<script th:src="@{/js/compressed.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+
+</body>
+
+</html>

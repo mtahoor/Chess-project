@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chesstar</title>
+    <meta charset="utf-8">
+    <th:block th:replace="fragments/imports :: imports"></th:block>
+</head>
+
+<body>
+<th:block th:replace="fragments/admin_header :: admin_header"></th:block>
+
+<section class="page_title ds s-overlay s-pt-150 s-pb-50">
+    <div class="s-blur"></div>
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-12 text-center">
+                <h1>All Schools</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="./index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">All Schools</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        All Schools
+                    </li>
+                </ol>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section class="ls s-py-xl-150 s-py-lg-120 s-py-md-80 s-py-50">
+    <div class="container">
+        <div class="row">
+            <main class="col-lg-12">
+                <article id="post-1708" class="post-1708 page type-page status-publish hentry">
+                    <div class="entry-content">
+                        <table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
+                            <thead>
+                            <tr>
+                                <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number"><span class="nobr">School Name</span></th>
+                                <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date"><span class="nobr">Address</span></th>
+                                <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status"><span class="nobr">Status</span></th>
+                                <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-total"><span class="nobr">Actions</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="school : ${schools}">
+                                <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number" data-title="School Name">
+                                    <a th:href="@{/admin/school/{id}(id=${school.schoolId})}" th:text="${school.name}">School Name</a>
+                                </td>
+                                <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date" data-title="Address">
+                                    <span th:text="${school.address}">Address</span>
+                                </td>
+                                <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="Status">
+                                    <span th:text="${school.getUser().enabled ? 'Enabled' : 'Disabled'}">Status</span>
+                                </td>
+                                <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">
+                                    <div class="d-flex align-items-center justify-content-around">
+                                        <form th:action="@{/admin/schools/{action}(action='enable')}" method="post">
+                                            <input type="hidden" name="schoolId" th:value="${school.schoolId}" />
+                                            <button class="btn btn-maincolor" type="submit" th:if="${!school.getUser().enabled}">Enable</button>
+                                        </form>
+                                        <form th:action="@{/admin/schools/disable}" method="post">
+                                            <input type="hidden" name="schoolId" th:value="${school.schoolId}" />
+                                            <button class="btn btn-maincolor" type="submit" th:if="${school.getUser().enabled}">Disable</button>
+                                        </form>
+                                        <a th:href="@{/admin/school/{id}(id=${school.schoolId})}" class="woocommerce-button button view">View</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </main>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<footer class="page_footer footer-1 text-center text-sm-left  ds s-pt-60 s-pb-30 c-mb-30 s-bordertop">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+
+            <div class="col-xl-2 col-12 text-xl-left text-center  animate" data-animation="fadeInUp">
+                <a href="./" class="logo">
+                    <img th:src="@{/img/logo.png}" alt="">
+                </a>
+            </div>
+
+            <div class="col-xl-8 col-12 text-center animate" data-animation="fadeInUp">
+
+                <div class="widget widget_nav_menu">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="courses.html">Courses</a>
+                        </li>
+                        <li>
+                            <a href="blog-right.html">Blog</a>
+                        </li>
+                        <li>
+                            <a href="shop-right.html">Shop</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-2 col-12 text-center text-xl-right animate" data-animation="fadeInUp">
+							<span class="social-icons">
+								<a href="#" class="fab fab fa-facebook-f @@iconClass" title="facebook"></a>
+								<a href="#" class="fab fa-telegram-plane @@iconClass" title="telegram"></a>
+								<a href="#" class="fab fa-linkedin-in @@iconClass" title="linkedin"></a>
+								<a href="#" class="fab fa-instagram @@iconClass" title="instagram"></a>
+							</span>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+<section class="page_copyright copyright1 ds s-pt-70 s-pb-60 s-bordertop">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="widget widget_mailchimp">
+
+
+                    <form class="signup" action="/">
+
+                        <i class="far fa-envelope"></i>
+                        <input name="email" type="email" class="form-control mailchimp_email" placeholder="Email address">
+
+                        <button type="submit" class="search-submit">
+										<span class="screen-reader-text">
+											Subscribe
+										</span>
+                        </button>
+                        <div class="response"></div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+
+                <p>&copy; Copyright <span class="copyright_year">2019</span> All Rights Reserved</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+</div><!-- eof #box_wrapper -->
+</div><!-- eof #canvas -->
+
+
+<script th:src="@{/js/compressed.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+
+</body>
+
+</html>
