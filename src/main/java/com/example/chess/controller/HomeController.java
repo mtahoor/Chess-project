@@ -68,7 +68,7 @@ public class HomeController {
     public String StudentSignup(Model model) {
         List<School> activeSchools = schoolRepository.findAll();
         model.addAttribute("schools", activeSchools);
-        return "student/signUp";
+        return "Student/signUp";
     }
 
     @PostMapping("/login")
