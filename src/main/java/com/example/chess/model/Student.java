@@ -30,6 +30,16 @@ public class Student {
     private String name;
 
 
+
+
+    @Getter
+    @Setter
+    private String phoneNumber;
+
+    @Getter
+    @Setter
+    private String profilePicture; 
+
     @Getter
     @Setter
     @Column(nullable = false)

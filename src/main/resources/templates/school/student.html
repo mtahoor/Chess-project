@@ -59,6 +59,11 @@
                     <td th:text="${student.getName()}"></td>
                 </tr>
 
+                <tr >
+                    <th>Profile <Picture></Picture>:</th>
+                    <td><img th:src="@{/uploads/{filename}(filename=${student.profilePicture})}" style="border-radius: 10%; height: 100px;" alt="Profile Picture" class="/profile"/></td>
+                </tr>
+
                 <tr>
                     <th>Rating:</th>
                     <td th:text="${student.getRating()}"></td>

@@ -27,6 +27,20 @@ public class School {
     private String address;
 
 
+    @Getter
+    @Setter
+    private String logoUrl; 
+
+    @Getter
+    @Setter
+    private String phoneNumber;
+
+    @Getter
+    @Setter
+    private String proofOfIdentity; 
+    
+
+
 
     @Getter
     @Setter

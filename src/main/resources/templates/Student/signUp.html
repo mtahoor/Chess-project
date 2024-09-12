@@ -60,21 +60,28 @@
                             <!--            href="shop-account-login.html">Confirm and log out</a>-->
                             <!--        </div>-->
 
-                            <form class="woocomerce-form woocommerce-form-login login" style="display: block"  method="post" th:action="@{/student_signup}">
+                            <form class="woocomerce-form woocommerce-form-login login" style="display: block"  method="post" th:action="@{/student_signup}" enctype="multipart/form-data">
+
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label for="name">Name <span class="required">*</span>
+                                    </label>
+                                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="name" id="name" value="" placeholder="Name" required>
+                                </p>
+
+                                <p class="">
+                                    <label for="profile">Profile Picture <span class="required">*</span>
+                                    </label>
+                                    <input type="file" class="woocommerce-Input woocommerce-Input--text input-text" name="profile" id="profile" value="" required>
+                                </p>
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label for="phoneNumber"> phoneNumber <span class="required">*</span>
+                                    </label>
+                                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number">
+                                </p>
                                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                     <label for="email">email address <span class="required">*</span>
                                     </label>
-                                    <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="email" value="" placeholder="email address">
-                                </p>
-                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                    <label for="username">Username<span class="required">*</span>
-                                    </label>
-                                    <input type="text" class="woocommerce-Input woocommerce-Input--text mb-20 input-text" name="username" id="username" value="" placeholder="Username">
-                                </p>
-                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                    <label for="password">Password <span class="required">*</span>
-                                    </label>
-                                    <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="Password">
+                                    <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="email" value="" placeholder="email address" required>
                                 </p>
 
                                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
@@ -84,11 +91,20 @@
                                         <option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.name}"></option>
                                     </select>
                                 </p>
+
                                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                    <label for="name">Address <span class="required">*</span>
+                                    <label for="username">Username<span class="required">*</span>
                                     </label>
-                                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="name" id="name" value="" placeholder="Name">
+                                    <input type="text" class="woocommerce-Input woocommerce-Input--text mb-20 input-text" name="username" id="username" value="" placeholder="Username" required>
                                 </p>
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label for="password">Password <span class="required">*</span>
+                                    </label>
+                                    <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" placeholder="Password" required>
+                                </p>
+
+                                
+                                
 
                                 <p class="form-row">
                                     <input type="submit" class="woocommerce-Button button" name="SignUp" value="Sign Up">

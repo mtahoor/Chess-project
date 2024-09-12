@@ -60,6 +60,8 @@
 <!--            href="shop-account-login.html">Confirm and log out</a>-->
 <!--        </div>-->
 
+                            <div class="woocommerce-message" th:if="${error != null}" th:text="${error}"></div>
+
                                     <form class="woocomerce-form woocommerce-form-login login" style="display: block"  method="post" th:action="@{/login}">
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                             <label for="username">Username or email address <span class="required">*</span>

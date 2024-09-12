@@ -69,6 +69,16 @@
                         <td th:text="${school.getUser().enabled}"></td>
                     </tr>
 
+                    <tr >
+                        <th>Logo:</th>
+                        <td><img th:src="@{/uploads/{filename}(filename=${school.logoUrl})}" style="height: 100px; border-radius: 10%;" alt="School Logo" class="logo"/></td>
+                    </tr>
+
+                    <tr >
+                        <th>proofOfIdentity:</th>
+                        <td><img th:src="@{/uploads/{filename}(filename=${school.proofOfIdentity})}" style="height: 100px; border-radius: 10%;" alt="School Logo" class="logo"/></td>
+                    </tr>
+
                     </tbody>
                 </table>
             </section>

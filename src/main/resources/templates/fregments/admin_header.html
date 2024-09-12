@@ -132,6 +132,12 @@
                     <div class="col-6 text-left">
                         <ul class="top-includes">
                             <li>
+                                <a class="login-form-btn" href="#" data-toggle="modal" data-target="#login-form"><i class="far fa-user"></i></a>
+                            </li>
+                            <li>
+                                <a class="contact-form-btn" href="#" data-toggle="modal" data-target="#contact-form"><i class="far fa-envelope"></i></a>
+                            </li>
+                            <li>
                                 <div class="dropdown">
                                     <a href="#" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-search"></i>
@@ -462,15 +468,9 @@
                                 </nav>
                                 <!-- eof main nav -->
                                 <span class=" text-left text-md-right d-none d-xl-block">
-                                        <div sec:authorize="isAuthenticated()">
-                                            <form th:action="@{/logout}" method="post">
-                                                <button type="submit" class="btn btn-outline-maincolor">Logout</button>
-                                            </form>
-                                        </div>
-                                        
-                                        <div sec:authorize="isAnonymous()">
-                                            <a href="/login" class="btn btn-outline-maincolor">Login</a>
-                                        </div>
+                                    <form th:action="@{/logout}" method="post">
+                                        <button type="submit" class="btn btn-outline-maincolor">Logout</button>
+                                    </form>
                                 </span>
                                 <ul class="top-includes d-none d-xl-block text-right">
                                     <li>
